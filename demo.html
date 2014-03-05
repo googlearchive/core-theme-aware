@@ -1,0 +1,75 @@
+
+<!doctype html>
+<!--
+Copyright 2013 The Polymer Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+<html>
+<head>
+  <title>core-theme-aware</title>
+  
+  <script src="../platform/platform.js"></script>
+  <link rel="import" href="core-theme-aware.html">
+
+  <style>
+    core-theme-aware {
+      display: block;
+      border: 1px solid black;
+      padding: 4px;
+      margin: 20px;
+    }
+
+    core-theme-aware.pretty {
+      background: seagreen;
+    }
+
+    core-theme-aware.different {
+      background: salmon;
+    }
+
+  </style>
+
+</head>
+<body theme="pretty" unresolved>
+  
+  <core-theme-aware>
+    
+    pretty theme
+    <section theme="different">
+
+      <core-theme-aware>
+        different theme
+        <themed-element></themed-element>
+      </core-theme-aware>      
+    
+    </section>
+
+  </core-theme-aware>
+
+  <core-theme-aware>
+    pretty theme
+  </core-theme-aware>
+
+
+  <polymer-element name="themed-element" noscript>
+    <template>
+      <style>
+      :host {
+        display: block;
+      }
+
+      core-theme-aware.different {
+        display: block;
+        border: 1px solid black;
+        padding: 4px;
+        margin: 20px;
+        background: steelblue;
+      }
+    </style>
+      <core-theme-aware>themed-element: different</core-theme-aware>
+    </template>
+  </polymer-element>
+
+</body>
+</html>
